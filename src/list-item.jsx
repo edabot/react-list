@@ -27,7 +27,9 @@ module.exports = React.createClass({
         value={this.state.text}
         />
       <span className="input-group-btn">
-        <button className="btn btn-default">
+        <button
+        className="btn btn-default"
+        onClick={this.handleDeleteClick}>
           Delete
         </button>
       </span>
@@ -38,6 +40,10 @@ module.exports = React.createClass({
     var update = {done: event.target.checked}
     this.setState(update);
     this.fb.update(update);
+  },
+
+  handleDeleteClick: function() {
+    this.fb.remove();
   }
 
 });
